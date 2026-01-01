@@ -54,12 +54,10 @@ http://localhost:8000
 ### Create a Kind cluster
 ```
 kind create cluster --name notes-cluster
-
 ```
 ### Load Docker image into Kind cluster
 ```
 kind load docker-image notes-app:latest --name notes-cluster
-
 ```
 ### Apply Kubernetes Namespace
 ```
@@ -68,21 +66,17 @@ kubectl apply -f k8s/namespace.yml
 ### Deploy the Application
 ```
 kubectl apply -f k8s/deployment.yml
-
 ```
 ### Apply Service
 ```
 kubectl apply -f k8s/service.yml
-
 ```
 ### Access the Application
 Since Kind uses NodePort, use port-forwarding:
 ```
 kubectl port-forward svc/notes-app-service 8000:8000 -n notes-app
-
 ```
 Open in browser:
 ```
 http://localhost:8000
-
 ```
